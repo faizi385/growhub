@@ -1,0 +1,148 @@
+import type { Product } from '@/types/marketplace'
+
+export const products: Product[] = [
+  {
+    id: '1',
+    name: 'Classic Cotton Kurta',
+    slug: 'classic-cotton-kurta',
+    price: 2500,
+    image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=400&fit=crop',
+    seller: {
+      id: 's1',
+      name: 'Ahmed Textiles',
+    },
+    store: {
+      id: 'st1',
+      name: 'Ahmed Textiles',
+    },
+    city: 'Lahore',
+    category: 'Fashion & Clothing',
+    whatsapp: '923001234567',
+  },
+  {
+    id: '2',
+    name: 'Leather Wallet',
+    slug: 'leather-wallet',
+    price: 1800,
+    image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&h=400&fit=crop',
+    seller: {
+      id: 's2',
+      name: 'Premium Leather',
+    },
+    store: {
+      id: 'st2',
+      name: 'Premium Leather',
+    },
+    city: 'Karachi',
+    category: 'Accessories',
+    whatsapp: '923001234568',
+  },
+  {
+    id: '3',
+    name: 'Wireless Earbuds',
+    slug: 'wireless-earbuds',
+    price: 4500,
+    image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop',
+    seller: {
+      id: 's3',
+      name: 'TechZone',
+    },
+    store: {
+      id: 'st3',
+      name: 'TechZone',
+    },
+    city: 'Islamabad',
+    category: 'Electronics',
+    whatsapp: '923001234569',
+  },
+  {
+    id: '4',
+    name: 'Sports Running Shoes',
+    slug: 'sports-running-shoes',
+    price: 5500,
+    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop',
+    seller: {
+      id: 's4',
+      name: 'Footwear Hub',
+    },
+    store: {
+      id: 'st4',
+      name: 'Footwear Hub',
+    },
+    city: 'Lahore',
+    category: 'Shoes',
+    whatsapp: '923001234570',
+  },
+  {
+    id: '5',
+    name: 'Analog Watch',
+    slug: 'analog-watch',
+    price: 3200,
+    image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop',
+    seller: {
+      id: 's5',
+      name: 'TimeKeepers',
+    },
+    store: {
+      id: 'st5',
+      name: 'TimeKeepers',
+    },
+    city: 'Rawalpindi',
+    category: 'Watches',
+    whatsapp: '923001234571',
+  },
+  {
+    id: '6',
+    name: 'Skincare Set',
+    slug: 'skincare-set',
+    price: 2800,
+    image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop',
+    seller: {
+      id: 's6',
+      name: 'Glow Beauty',
+    },
+    store: {
+      id: 'st6',
+      name: 'Glow Beauty',
+    },
+    city: 'Karachi',
+    category: 'Beauty & Personal Care',
+    whatsapp: '923001234572',
+  },
+  {
+    id: '7',
+    name: 'Designer Scarf',
+    slug: 'designer-scarf',
+    price: 1500,
+    image: 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=400&h=400&fit=crop',
+    seller: {
+      id: 's7',
+      name: 'Style Corner',
+    },
+    store: {
+      id: 'st7',
+      name: 'Style Corner',
+    },
+    city: 'Faisalabad',
+    category: 'Fashion & Clothing',
+    whatsapp: '923001234573',
+  },
+  {
+    id: '8',
+    name: 'Sunglasses',
+    slug: 'sunglasses',
+    price: 1200,
+    image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop',
+    seller: {
+      id: 's8',
+      name: 'Vision Plus',
+    },
+    store: {
+      id: 'st8',
+      name: 'Vision Plus',
+    },
+    city: 'Islamabad',
+    category: 'Accessories',
+    whatsapp: '923001234574',
+  },
+]
