@@ -1,5 +1,14 @@
 @import 'tailwindcss';
 
+:root {
+  --color-cream: #efe8dd;
+  --color-teal: #167d8d;
+  --color-teal-dark: #126572;
+  --color-teal-light: #1a9aab;
+  --color-charcoal: #303841;
+  --color-white: #ffffff;
+}
+
 html {
   font-family: Inter, system-ui, sans-serif;
 }
@@ -12,4 +21,50 @@ body {
 
 #app {
   min-height: 100vh;
+}
+
+/* GrowHub SweetAlert Theme */
+
+.growhub-alert-popup {
+  border-radius: 22px !important;
+  padding: 2rem !important;
+  font-family: inherit;
+}
+
+.growhub-alert-title {
+  color: #303841 !important;
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+}
+
+.growhub-alert-confirm {
+  background: #167d8d !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 11px 22px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.growhub-alert-confirm:hover {
+  background: #126572 !important;
+}
+
+.growhub-alert-cancel {
+  background: #efe8dd !important;
+  color: #303841 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 11px 22px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.growhub-alert-cancel:hover {
+  background: #e5dccf !important;
 }

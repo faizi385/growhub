@@ -1,9 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useAuthStore } from '@/stores/auth'
+
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+
   routes: [
+    // Public routes
     {
       path: '/',
       name: 'home',
@@ -49,6 +53,45 @@ const router = createRouter({
       name: 'create-store',
       component: () => import('../views/CreateStoreView.vue'),
     },
+
+    // Seller routes
+    {
+      path: '/seller/dashboard',
+      name: 'seller-dashboard',
+      component: () => import('../views/SellerDashboardView.vue'),
+      meta: {
+        requiresAuth: true,
+      },
+    },
+
+    // Admin routes
+    {
+      path: '/admin',
+      component: () => import('../layouts/AdminLayout.vue'),
+      meta: {
+        requiresAuth: true,
+        requiresAdmin: true,
+      },
+      children: [
+        {
+          path: '',
+          name: 'admin-dashboard',
+          component: () => import('../views/admin/AdminDashboardView.vue'),
+        },
+        {
+          path: 'stores',
+          name: 'admin-stores',
+          component: () => import('../views/admin/AdminStoresView.vue'),
+        },
+        {
+          path: 'stores/:id',
+          name: 'admin-store-detail',
+          component: () => import('../views/admin/AdminStoreDetailView.vue'),
+        },
+      ],
+    },
+
+    // Informational routes
     {
       path: '/seller-guide',
       name: 'seller-guide',
@@ -75,6 +118,39 @@ const router = createRouter({
       component: () => import('../views/PrivacyView.vue'),
     },
   ],
+})
+
+// Navigation protection
+router.beforeEach(async (to) => {
+  const auth = useAuthStore()
+
+  if (!auth.initialized) {
+    await auth.fetchUser()
+  }
+
+  // Require login
+  if (to.meta.requiresAuth && !auth.isAuthenticated) {
+    return {
+      name: 'login',
+      query: {
+        redirect: to.fullPath,
+      },
+    }
+  }
+
+  // Require admin privileges
+  if (to.meta.requiresAdmin && !auth.user?.is_admin) {
+    return {
+      name: auth.isAuthenticated ? 'seller-dashboard' : 'login',
+    }
+  }
+
+  // Prevent authenticated users from revisiting login
+  if (to.name === 'login' && auth.isAuthenticated) {
+    return auth.user?.is_admin ? { name: 'admin-dashboard' } : { name: 'seller-dashboard' }
+  }
+
+  return true
 })
 
 export default router
